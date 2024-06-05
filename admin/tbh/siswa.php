@@ -1,5 +1,19 @@
 <?php 
     include 'header.php';
+
+    if(isset($_GET['status'])){
+        if($_GET['status']== 'data_ada'){
+            echo "<script>
+                            Swal.fire({
+                                        position: 'center',
+                                        icon: 'error',
+                                        title: 'NISN telah digunakan!',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                        </script>";
+        }
+    }
 ?>
 
 <div class="container">

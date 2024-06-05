@@ -47,15 +47,15 @@
         }
 
         ::-webkit-scrollbar {
-        width: 10px;
+        width: 6px;
         }
 
         ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
+        background: rgb(255, 255, 255, 0); 
         }
         
         ::-webkit-scrollbar-thumb {
-        background: #888; 
+        background: rgb(136, 136, 136, 30); 
         }
 
         ::-webkit-scrollbar-thumb:hover {

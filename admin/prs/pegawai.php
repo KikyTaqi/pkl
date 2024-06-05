@@ -8,14 +8,26 @@
     $jk = $_POST['jk'];
     $alamat = $_POST['alamat'];
 
-    $sql = mysqli_query($koneksi, "INSERT INTO pegawai (nip, nama_pegawai, tgl_lahir, alamat, jenis_kelamin) 
-                        VALUES ('$nip', '$nama', '$tgl', '$alamat', '$jk')");
-    if(!$sql){
-        die("Query Error = " .mysql_errno($koneksi). "-" .mysqli_error($koneski));
-    }else{
+    
+    $check_nip = mysqli_query($koneksi, "SELECT nip FROM pegawai WHERE nip = '$nip'");
+
+    if(mysqli_num_rows($check_nip)> 0){
         echo "<script>
-                alert('Data Berhasil Ditambah');
-                window.location='../pegawai.php';
+                window.location='../tbh/pegawai.php?status=data_ada';
             </script>";
-    }   
+    }else{
+
+        $sql = mysqli_query($koneksi, "INSERT INTO pegawai (nip, nama_pegawai, tgl_lahir, tempat_lahir, alamat, jenis_kelamin) 
+                        VALUES ('$nip', '$nama', '$tgl', '$tmp_lahir', '$alamat', '$jk')");
+
+        if(!$sql){
+            die("Query Error = " .mysql_errno($koneksi). "-" .mysqli_error($koneski));
+        }else{
+            echo "<script>
+                    window.location='../pegawai.php?status=success';
+                </script>";
+        }
+    }
+    
+    
 ?>

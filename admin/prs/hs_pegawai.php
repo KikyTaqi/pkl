@@ -11,8 +11,7 @@
             die("Query Error = " .mysql_errno($koneksi). "-" .mysqli_error($koneski));
         }else{
             echo "<script>
-                    alert('Data Berhasil Dihapus');
-                    window.location='../pegawai.php';
+                    window.location='../pegawai.php?status=success';
                 </script>";
         }   
     }

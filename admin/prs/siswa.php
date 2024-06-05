@@ -11,14 +11,20 @@
     $jk = $_POST['jk'];
     $alamat = $_POST['alamat'];
 
-    $sql = mysqli_query($koneksi, "INSERT INTO siswa (nisn, nama_siswa, tgl_lahir, tempat_lahir, alamat, nis, jenis_kelamin, kelas, jurusan) 
-                        VALUES ('$nisn', '$nama', '$tgl', '$tmp_lahir', '$alamat', '$nis', '$jk', '$kelas', '$jurusan')");
-    if(!$sql){
-        die("Query Error = " .mysql_errno($koneksi). "-" .mysqli_error($koneski));
-    }else{
+    $check_nisn = mysqli_query($koneksi, "SELECT nisn FROM siswa WHERE nisn = '$nisn'");
+    if (mysqli_num_rows($check_nisn) > 0) {
         echo "<script>
-                alert('Data Berhasil Ditambah');
-                window.location='../siswa.php';
+                window.location='../tbh/siswa.php?status=data_ada';
             </script>";
-    }   
+    } else {
+        $sql = mysqli_query($koneksi, "INSERT INTO siswa (nisn, nama_siswa, tgl_lahir, tempat_lahir, alamat, nis, jenis_kelamin, kelas, jurusan) 
+                            VALUES ('$nisn', '$nama', '$tgl', '$tmp_lahir', '$alamat', '$nis', '$jk', '$kelas', '$jurusan')");
+        if(!$sql){
+            die("Query Error = " .mysqli_errno($koneksi). "-" .mysqli_error($koneksi));
+        } else {
+            echo "<script>
+                    window.location='../siswa.php?status=success';
+                </script>";
+        }
+    }
 ?>

@@ -18,7 +18,6 @@
         die("Query Error : " .mysqli_errno($koneksi). "-" .mysqli_error($koneksi));
     } else {
         echo "<script>
-                alert('Data Berhasil diubah');
-                window.location='../siswa.php';
+                window.location='../siswa.php?status=success_edit';
             </script>";
     }

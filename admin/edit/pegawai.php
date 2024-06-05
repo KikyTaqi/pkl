@@ -1,18 +1,15 @@
 <?php 
-    include 'header.php';
+    include '../header.php';
 
-    if(isset($_GET['status'])){
-        if($_GET['status']== 'data_ada'){
-            echo "<script>
-                            Swal.fire({
-                                        position: 'center',
-                                        icon: 'error',
-                                        title: 'NIP telah digunakan!',
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    });
-                        </script>";
+    include '../../koneksi.php';
+
+    if(isset($_GET['nip'])){
+        $nip = $_GET['nip'];
+        $sql = mysqli_query($koneksi, "SELECT * FROM pegawai WHERE nip = '$nip'");
+        if (!$sql){
+            die("Query Error : " .mysqli_errno($koneksi). "-" .mysqli_error($koneksi));
         }
+        $d = mysqli_fetch_assoc($sql);
     }
 ?>
 
@@ -23,18 +20,18 @@
                 <h3 class="text-center">Tambah Pegawai</h3>
             </div>
             <div class="card-body" style="margin: 2px 30px 2px 30px">
-                <form action="../prs/pegawai.php" method="post">
+                <form action="../prs/ed_pegawai.php" method="post">
                     <div class="row mb-3">
                        <div class="col-md-3">
                            <div class="form-group">
-                               <label for="nisn">NIP</label>
-                               <input required type="text" name="nip" id="nisn" class="form-control">
+                               <label for="nip">NIP</label>
+                               <input required value="<?= $d['nip']?>" type="text" name="nip" id="nip" class="form-control">
                            </div>
                        </div>
                        <div class="col-md-9">
                            <div class="form-group">
                                <label for="nama">Nama</label>
-                               <input required type="text" name="nama" id="nama" class="form-control">
+                               <input required value="<?= $d['nama_pegawai']?>" type="text" name="nama" id="nama" class="form-control">
                            </div>
                        </div>
                     </div>
@@ -42,31 +39,31 @@
                        <div class="col-md-3">
                            <div class="form-group">
                                <label for="tl">Tgl. Lahir</label>
-                               <input required type="date" name="tgl_lahir" id="tl" class="form-control">
+                               <input required value="<?= $d['tgl_lahir']?>" type="date" name="tgl_lahir" id="tl" class="form-control">
                            </div>
                        </div>
                        <div class="col-md-6">
                            <div class="form-group">
                                <label for="tempatl">Tempat Lahir</label>
-                               <input required type="text" name="tmp_lahir" id="tempatl" class="form-control">
+                               <input required value="<?= $d['tempat_lahir']?>" type="text" name="tmp_lahir" id="tempatl" class="form-control">
                            </div>
                        </div>
                        <div class="col-md-3">
                             <div class="form-group">
                                 <label for="jk">Jenis Kelamin</label>
                                 <select name="jk" id="jk" class="form-select">
-                                    <option value="L">Laki-laki</option>
-                                    <option value="P">Perempuan</option>
+                                    <option <?php if($d['jenis_kelamin'] === 'L'){echo 'selected';} ?> value="L">Laki-laki</option>
+                                    <option <?php if($d['jenis_kelamin'] === 'P'){echo 'selected';} ?> value="P">Perempuan</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="alamat">Alamat</label>
-                        <input required type="text" name="alamat" id="alamat" class="form-control">
+                        <input required value="<?= $d['alamat']?>" type="text" name="alamat" id="alamat" class="form-control">
                     </div>
                     <a href="../pegawai.php" class="btn btn-danger">Kembali</a>
-                    <input type="submit" value="Tambah" class="btn btn-primary float-end">
+                    <input type="submit" value="Edit" class="btn btn-warning float-end">
                 </form>
             </div>
         </div>

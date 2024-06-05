@@ -9,12 +9,6 @@
             die("Query Error : " .mysqli_errno($koneksi). "-" .mysqli_error($koneksi));
         }
         $d = mysqli_fetch_assoc($sql);
-        if (!count($d)){
-            echo "<script>
-                    alert('Data tidak ditemukan');
-                    window.location='d.php';
-                </script>";
-        }
     }
 ?>
 
