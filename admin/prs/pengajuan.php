@@ -14,10 +14,11 @@
     $durasi = $_POST['durasi'];
     $kepsek = $_POST['kepsek'];
     $thn = $_POST['thn'];
+    $jsiswa = $_POST['jsiswa'];
 
-    $sql = "INSERT INTO pengajuan (nisn_1, nisn_2, nisn_3, nisn_4, dudi, thn_ajaran, tgl, tgl_mulai, tgl_selesai, durasi, kepsek, tahun) 
+    $sql = "INSERT INTO pengajuan (nisn_1, nisn_2, nisn_3, nisn_4, dudi, thn_ajaran, tgl, tgl_mulai, tgl_selesai, durasi, kepsek, tahun, jml_siswa) 
             VALUES ('$nisn1', " . ($nisn2 ? "'$nisn2'" : "NULL") . ", " . ($nisn3 ? "'$nisn3'" : "NULL") . ", " . ($nisn4 ? "'$nisn4'" : "NULL") . ", 
-                    '$dudi', '$thn_ajaran', '$tgl', '$tgl_mulai', '$tgl_selesai', '$durasi', '$kepsek', '$thn')";
+                    '$dudi', '$thn_ajaran', '$tgl', '$tgl_mulai', '$tgl_selesai', '$durasi', '$kepsek', '$thn', '$jsiswa')";
     
     $result = mysqli_query($koneksi, $sql);
 

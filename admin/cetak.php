@@ -164,48 +164,73 @@
                         <tr>
                             <th class="text-center" width="20px">NO</th>
                             <th class="text-center">NAMA</th>
-                            <th class="text-center" width="160px">NIS</th>
+                            <th class="text-center" width="160px">NISN</th>
                             <th class="text-center" width="160px">KELAS</th>
                         </tr>
                         
+                    <?php 
+                    
+                    $n1 = $d['nisn_1'];
+
+                    $ns1 = mysqli_query($koneksi, "SELECT nama_siswa, kelas, jurusan FROM siswa WHERE nisn = '$n1'");
+                    $s1 = mysqli_fetch_assoc($ns1);
+                    
+                    ?>
+
                         <tr>
                             <td>1</td>
-                            <td></td>
+                            <td><?= $s1['nama_siswa']?></td>
                             <td><?= $d["nisn_1"]?></td>
-                            <td></td>
+                            <td><?= $s1['kelas']. " ".$s1['jurusan']?></td>
                         </tr>
 
-                        <?php if($d['nisn_2'] != 'null'){
+                        <?php if($d['nisn_2'] != ''){
+                            
+                            $n2 = $d['nisn_2'];
+
+                            $ns2 = mysqli_query($koneksi, "SELECT nama_siswa, kelas, jurusan FROM siswa WHERE nisn = '$n2'");
+                            $s2 = mysqli_fetch_assoc($ns2);
+
                                 echo "
                                       <tr>
                                         <td>2</td>
-                                        <td></td>
+                                        <td>".$s2['nama_siswa']."</td>
                                         <td> ".$d['nisn_2']."</td>
-                                        <td></td>
+                                        <td>".$s2['kelas']." ".$s2['jurusan']."</td>
                                     </tr>  
                                 ";
                             }
                         ?>
-                        <?php if($d['nisn_3'] != 'null'){
-                                echo "
-                                      <tr>
-                                        <td>2</td>
-                                        <td></td>
-                                        <td> ".$d['nisn_3']."</td>
-                                        <td></td>
-                                    </tr>  
-                                ";
+                        <?php if($d['nisn_3'] != ''){
+                                $n3 = $d['nisn_3'];
+
+                                $ns3 = mysqli_query($koneksi, "SELECT nama_siswa, kelas, jurusan FROM siswa WHERE nisn = '$n3'");
+                                $s3 = mysqli_fetch_assoc($ns3);
+    
+                                    echo "
+                                          <tr>
+                                            <td>3</td>
+                                            <td>".$s3['nama_siswa']."</td>
+                                            <td> ".$d['nisn_3']."</td>
+                                            <td>".$s3['kelas']." ".$s3['jurusan']."</td>
+                                        </tr>  
+                                    ";
                             }
                         ?>
-                        <?php if($d['nisn_4'] != 'null'){
-                                echo "
-                                      <tr>
-                                        <td>2</td>
-                                        <td></td>
-                                        <td> ".$d['nisn_4']."</td>
-                                        <td></td>
-                                    </tr>  
-                                ";
+                        <?php if($d['nisn_4'] != ''){
+                                $n4 = $d['nisn_4'];
+
+                                $ns4 = mysqli_query($koneksi, "SELECT nama_siswa, kelas, jurusan FROM siswa WHERE nisn = '$n4'");
+                                $s4 = mysqli_fetch_assoc($ns4);
+    
+                                    echo "
+                                          <tr>
+                                            <td>4</td>
+                                            <td>".$s4['nama_siswa']."</td>
+                                            <td> ".$d['nisn_4']."</td>
+                                            <td>".$s4['kelas']." ".$s4['jurusan']."</td>
+                                        </tr>  
+                                    ";
                             }
                         ?>
                         

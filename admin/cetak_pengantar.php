@@ -119,7 +119,7 @@ $pdf->Cell(0, 10, 'Dengan hormat,', 0, 1);
 $pdf->Ln(1);
 $pdf->Cell(10);
 
-$pdf->MultiCell(0, 7, 'Berdasarkan Program Kerja SMK Negeri 3 Kendal tentang Praktik Kerja Lapangan (PKL) Tahun Pelajaran '.$d["thn_ajaran"].' dengan ini kami mohon kepada Pimpinan '.$d["dudi"].' untuk berkenan menerima siswa SMK Negeri 3 Kendal untuk melaksanakan Praktik Kerja Lapangan (PKL) dalam waktu '.$d["durasi"].' ( '.$durasi.' ) bulan mulai tanggal '.$tgl_mulai.' '.$bln_mulai.' '.$thn_mulai.' sampai dengan '.$tgl_selesai.' '.$bln_selesai.' '.$thn_selesai.'. Adapun siswa yang akan mengikuti Praktik Kerja Lapangan (PKL) sejumlah '.$d["jml_siswa"].' ( '.$jsiswa.' ) orang dengan data sebagai berikut:', 0, 1);
+$pdf->MultiCell(175, 7, 'Sesuai dengan Surat Permohonan PKL yang pernah kami sampaikan sebelumnya serta Persetujuan PKL dari '.$pkl['nama_dudi'].', dengan ini kami menugaskan siswa untuk melaksanakan Praktik Kerja Lapangan (PKL) Tahun Pelajaran '.$d['thn_ajaran'].' selama '.$d['durasi'].' ( '.$durasi.' ) bulan mulai tanggal '.$tgl_mulai.' '.$bln_mulai.' '.$thn_mulai.' sampai dengan '.$tgl_selesai.' '.$bln_selesai.' '.$thn_selesai.'. Kami mohon bantuan untuk dapat  menerima serta membimbing siswa kami sesuai dengan jadwal kegiatan dan tata tertib yang berlaku di perusahaan. Adapun siswa yang akan mengikuti kegiatan PKL  adalah  :', 0, 1);
 $pdf->Ln(10);
 
 // Table header
@@ -190,11 +190,8 @@ $pdf->SetFont('helvetica', '', 8);
 $pdf->SetFont('helvetica', '', 12);
 $pdf->Ln(10);
 $pdf->Cell(10);
-$pdf->MultiCell(0, 7, 'Adapun jawaban Bpk/Ibu/Sdr untuk menerima/belum menerima siswa/siswi kami dapat langsung mengisi blangko jawaban terlampir atau dapat mengirimkan jawaban melalui email Urs Praktek Kerja Lapangan (email=prakerin@smkn3kendal.sch.id).', 0, 1);
-$pdf->Ln(1);
-$pdf->Cell(10);
-$pdf->MultiCell(0, 7, 'Demikian Surat Permohonan PKL ini kami sampaikan. Atas perhatian dukungan serta kesediaannya disampaikan terima kasih.', 0, 1);
-$pdf->Ln(10);
+$pdf->MultiCell(0, 7, 'Demikian Surat Pengantar PKL ini kami sampaikan, atas perhatian, dukungan, serta kesediaannya disampaikan terima kasih.', 0, 1);
+$pdf->Ln(20);
 
 $pdf->Cell(100);
 $pdf->Cell(0, 10, 'Kepala Sekolah,', 0, 1, 'L');
@@ -205,133 +202,6 @@ $pdf->Cell(0, 10, 'ABDUL MALIK NUGROHO, S.Pd.T.', 0, 1, 'L');
 $pdf->Cell(100);
 $pdf->SetFont('helvetica', '', 12);
 $pdf->Cell(0, 1, 'NIP.198111222014021001', 0, 1, 'L');
-
-// Add new page
-$pdf->AddPage('P', array(210, 330)); // Portrait, A4 size
-
-// Repeat the header section
-// Header section
-$pdf->Image('https://images2.imgbox.com/be/fc/4Ckttr7v_o.png', 15, 10, 25); // Add image
-$pdf->Cell($jarakx);
-$pdf->Cell(0, 5, 'PEMERINTAH PROVINSI JAWA TENGAH', 0, 1, 'C');
-$pdf->SetFont('Arial', '', 14);
-$pdf->Cell($jarakx);
-$pdf->Cell(0, 5, 'DINAS PENDIDIKAN DAN KEBUDAYAAN', 0, 1, 'C');
-$pdf->SetFont('Arial', 'B', 14);
-$pdf->Cell($jarakx);
-$pdf->Cell(0, 5, 'SEKOLAH MENENGAH KEJURUAN NEGERI 3 KENDAL', 0, 1, 'C');
-$pdf->SetFont('Arial', '', 9);
-$pdf->Cell($jarakx);
-$pdf->Cell(0, 4, 'Jalan Boja - Limbangan Kilometer 1 Boja, Kabupaten Kendal, Kode Pos 51381', 0, 1, 'C');
-$pdf->Cell($jarakx);
-$pdf->Cell(0, 4, 'Telepon 0294-572623  Faksimile 0294-572623 Surat Elektronik smktelukendal@yahoo.com,', 0, 1, 'C');
-$pdf->Cell($jarakx);
-$pdf->Cell(0, 4, 'smk@smkn3kendal.sch.id', 0, 1, 'C');
-
-// Draw a line
-$pdf->setLineWidth(1);
-$pdf->Line(10, 39, 200, 39);
-$pdf->Ln(5);
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(0, 10, 'PERSETUJUAN PENGAJUAN PRAKERIN', 0, 1, 'C');
-$pdf->SetFont('Arial', '', 12);
-$pdf->Cell(0, 10, 'Tahun Pelajaran '.$d['thn_ajaran'], 0, 1, 'C');
-$pdf->Cell(0, 10, 'Waktu Pelaksanaan : '.$tgl_mulai.' '.$bln_mulai.' '.$thn_mulai.' sampai dengan '.$tgl_selesai.' '.$bln_selesai.' '.$thn_selesai, 0, 1, 'C');
-$pdf->Ln(10);
-
-// Information table
-$pdf->setLineWidth(0.2);
-$pdf->SetFont('Arial', '', 12);
-$pdf->Cell(30);
-$pdf->Cell(50, 10, 'Nama DU/DI (Bengkel)', 0, 0);
-$pdf->Cell(0, 10, ': '.$pkl['nama_dudi'], 0, 1);
-$pdf->Cell(30);
-$pdf->Cell(50, 10, 'Nama Pimpinan DU/DI', 0, 0);
-$pdf->Cell(0, 10, ': '.$pkl['ceo'], 0, 1);
-$pdf->Cell(30);
-$pdf->Cell(50, 10, 'Alamat DU/DI', 0, 0);
-$pdf->MultiCell(90, 10, ': '.$pkl['alamat'], 0, 1);
-$pdf->Cell(30);
-$pdf->Cell(50, 10, 'No. Tlp./ HP', 0, 0);
-$pdf->Cell(0, 10, ': -', 0, 1);
-
-
-$pdf->Ln(10);
-$pdf->Cell(30);
-$pdf->Cell(50, 1, 'Nama Siswa', 0, 0);
-$pdf->Cell(0, 1, ':', 0, 1);
-$pdf->Ln(3);
-$pdf->SetFont('Arial', 'B', 12);
-$pdf->Cell(35);
-$pdf->Cell(10, 10, 'NO', 1, 0, 'C');
-$pdf->Cell(60, 10, 'NAMA', 1, 0, 'C');
-$pdf->Cell(35, 10, 'NIS', 1, 0, 'C');
-$pdf->Cell(30, 10, 'KELAS', 1, 1, 'C');
-
-// Table content
-$pdf->SetFont('Arial', '', 8);
-
-
-
-    $pdf->Cell(35);
-    $pdf->Cell(10, 10, "1", 1, 0, 'C');
-    $pdf->Cell(60, 10, $s1['nama_siswa'], 1, 0, 'C');
-    $pdf->Cell(35, 10, $d["nisn_1"], 1, 0, 'C');
-    $pdf->Cell(30, 10, $s1['kelas']. " ".$s1['jurusan'], 1, 1, 'C');
-
-    if($d['nisn_2'] != ''){
-                            
-        $n2 = $d['nisn_2'];
-
-        $ns2 = mysqli_query($koneksi, "SELECT nama_siswa, kelas, jurusan FROM siswa WHERE nisn = '$n2'");
-        $s2 = mysqli_fetch_assoc($ns2);
-
-        $pdf->Cell(35);
-        $pdf->Cell(10, 10, "1", 1, 0, 'C');
-        $pdf->Cell(60, 10, $s2['nama_siswa'], 1, 0, 'C');
-        $pdf->Cell(35, 10, $d["nisn_2"], 1, 0, 'C');
-        $pdf->Cell(30, 10, $s2['kelas']. " ".$s2['jurusan'], 1, 1, 'C');
-    }
-    if($d['nisn_3'] != ''){
-                            
-        $n3 = $d['nisn_3'];
-
-        $ns3 = mysqli_query($koneksi, "SELECT nama_siswa, kelas, jurusan FROM siswa WHERE nisn = '$n3'");
-        $s3 = mysqli_fetch_assoc($ns3);
-
-        $pdf->Cell(35);
-        $pdf->Cell(10, 10, "1", 1, 0, 'C');
-        $pdf->Cell(60, 10, $s3['nama_siswa'], 1, 0, 'C');
-        $pdf->Cell(35, 10, $d["nisn_3"], 1, 0, 'C');
-        $pdf->Cell(30, 10, $s3['kelas']. " ".$s3['jurusan'], 1, 1, 'C');
-    }
-    if($d['nisn_4'] != ''){
-                            
-        $n4 = $d['nisn_4'];
-
-        $ns4 = mysqli_query($koneksi, "SELECT nama_siswa, kelas, jurusan FROM siswa WHERE nisn = '$n4'");
-        $s4 = mysqli_fetch_assoc($ns4);
-
-        $pdf->Cell(35);
-        $pdf->Cell(10, 10, "1", 1, 0, 'C');
-        $pdf->Cell(60, 10, $s4['nama_siswa'], 1, 0, 'C');
-        $pdf->Cell(35, 10, $d["nisn_4"], 1, 0, 'C');
-        $pdf->Cell(30, 10, $s4['kelas']. " ".$s4['jurusan'], 1, 1, 'C');
-    }
-
-
-// Approval section
-$pdf->SetFont('Arial', '', 12);
-$pdf->Ln(50);
-$pdf->Cell(100);
-$pdf->Cell(0, 5, 'Menyetujui', 0, 1, 'L');
-$pdf->Cell(100);
-$pdf->Cell(0, 10, 'Ka. Program TKR/TKJ/RPL/TEI/KI', 0, 1, 'L');
-$pdf->Ln(20);
-$pdf->Cell(100);
-$pdf->Cell(0, 5, '(..................................................)', 0, 1, 'L');
-$pdf->Cell(100);
-$pdf->Cell(0, 5, 'NIP.', 0, 1, 'L');
 
 // Output PDF
 $pdf->Output();

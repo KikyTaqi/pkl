@@ -195,7 +195,7 @@
                 differenceInMonths++;
             }
 
-            document.getElementById('durasi').value = differenceInMonths + " Bulan";
+            document.getElementById('durasi').value = differenceInMonths;
         } else {
             document.getElementById('durasi').value = '';
         }
