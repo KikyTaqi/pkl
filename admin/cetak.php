@@ -1,4 +1,15 @@
-<?php include '../koneksi.php' ?>
+<?php 
+    include '../koneksi.php';
+
+    if(isset($_GET['no_surat'])){
+        $nos = $_GET['no_surat'];
+        $sql = mysqli_query($koneksi, "SELECT * FROM pengajuan WHERE id_surat = '$nos'");
+        if (!$sql){
+            die("Query Error : " .mysqli_errno($koneksi). "-" .mysqli_error($koneksi));
+        }
+        $d = mysqli_fetch_assoc($sql);
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -119,7 +130,7 @@
     <div class="container">
         <div class="page">
             <div class="text-center" style="margin-left: 1cm;">
-                <img src="https://bit.ly/3IWbNLC" alt="jawa" class="mg">
+                <img src="https://images2.imgbox.com/be/fc/4Ckttr7v_o.png" alt="jawa" class="mg">
                 <p style="font-size: 18px; line-height: 1px;">PEMERINTAH PROVINSI JAWA TENGAH</p>
                 <p style="font-size: 20px; line-height: 20px;">DINAS PENDIDIKAN DAN KEBUDAYAAN<br><b>SEKOLAH MENENGAH KEJURUAN  NEGERI 3 KENDAL</b></p>
                 <p style="font-size: 12px; line-height: 1px;">Jalan Boja - Limbangan Kilometer 1 Boja, Kabupaten Kendal Kode Pos 51381</p>
@@ -156,30 +167,48 @@
                             <th class="text-center" width="160px">NIS</th>
                             <th class="text-center" width="160px">KELAS</th>
                         </tr>
+                        
                         <tr>
                             <td>1</td>
-                            <td>as</td>
-                            <td>12</td>
-                            <td>xz</td>
+                            <td></td>
+                            <td><?= $d["nisn_1"]?></td>
+                            <td></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>sa</td>
-                            <td>as</td>
-                            <td>xc</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>fd</td>
-                            <td>xc</td>
-                            <td>gf</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>fs</td>
-                            <td>xc</td>
-                            <td>fg</td>
-                        </tr>
+
+                        <?php if($d['nisn_2'] != 'null'){
+                                echo "
+                                      <tr>
+                                        <td>2</td>
+                                        <td></td>
+                                        <td> ".$d['nisn_2']."</td>
+                                        <td></td>
+                                    </tr>  
+                                ";
+                            }
+                        ?>
+                        <?php if($d['nisn_3'] != 'null'){
+                                echo "
+                                      <tr>
+                                        <td>2</td>
+                                        <td></td>
+                                        <td> ".$d['nisn_3']."</td>
+                                        <td></td>
+                                    </tr>  
+                                ";
+                            }
+                        ?>
+                        <?php if($d['nisn_4'] != 'null'){
+                                echo "
+                                      <tr>
+                                        <td>2</td>
+                                        <td></td>
+                                        <td> ".$d['nisn_4']."</td>
+                                        <td></td>
+                                    </tr>  
+                                ";
+                            }
+                        ?>
+                        
                     </table>
                     <p style="text-align: justify;">Adapun jawaban Bpk/Ibu/Sdr untuk menerima/belum menerima siswa/siswi kami,
                          dapat langsung mengisi blangko jawaban terlampir, atau dapat mengirimkan jawaban melalui
@@ -205,7 +234,7 @@
         </div>
         <div class="page">
             <div class="text-center" style="margin-left: 1cm;">
-                <img src="https://bit.ly/3IWbNLC" alt="jawa" class="mg">
+                <img src="https://images2.imgbox.com/be/fc/4Ckttr7v_o.png" alt="jawa" class="mg">
                 <p style="font-size: 18px; line-height: 1px;">PEMERINTAH PROVINSI JAWA TENGAH</p>
                 <p style="font-size: 20px; line-height: 20px;">DINAS PENDIDIKAN DAN KEBUDAYAAN<br><b>SEKOLAH MENENGAH KEJURUAN  NEGERI 3 KENDAL</b></p>
                 <p style="font-size: 12px; line-height: 1px;">Jalan Boja - Limbangan Kilometer 1 Boja, Kabupaten Kendal Kode Pos 51381</p>
@@ -300,7 +329,7 @@
     </div>
 
     <script>
-        // window.print();
+         window.print();
     </script>
 </body>
 </html>
