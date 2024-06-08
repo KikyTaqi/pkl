@@ -142,25 +142,13 @@
                 <div class="carousel-item active">
                     <!-- <p>https://smkn3kendal.sch.id/2024/assets/img/smk-1.webp</p> -->
                 <img class="cr" draggable="false" src="https://smkn3kendal.sch.id/2024/assets/img/smk-1.webp" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
                 </div>
                 <div class="carousel-item">
                     <!-- <p>https://smkn3kendal.sch.id/2024/assets/img/smk-2.webp</p> -->
                 <img class="cr" draggable="false" src="https://smkn3kendal.sch.id/2024/assets/img/smk-2.webp" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
-                </div>
                 </div>
                 <div class="carousel-item">
                 <img class="cr" draggable="false" src="https://images2.imgbox.com/b0/fd/fVY7jIJF_o.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
-                </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -173,12 +161,57 @@
             </button>
         </div>
         
-        <div class="card">
-            <div class="card-body">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos in doloribus libero beatae ipsam nulla, necessitatibus architecto, eum accusantium aperiam ad debitis. Quos culpa in molestiae optio maxime veniam quae autem impedit. Ex incidunt corrupti aliquid sunt dolorum voluptates, iure harum esse quidem? Adipisci sequi fugiat dicta aliquid in. Commodi exercitationem voluptatibus beatae officia repellendus excepturi autem officiis reprehenderit consequatur pariatur. Quos neque dolorum esse in praesentium ut nobis odit laboriosam, possimus sunt omnis voluptatem architecto. Sed dolor amet temporibus excepturi assumenda, provident, dolorem quis magnam aut repellat, quia eos nesciunt praesentium fugit qui doloremque fugiat error officia nostrum commodi.
+        <!-- Deskripsi Sistem PKL -->
+        <section class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2>Selamat Datang di Sistem PKL</h2>
+                    <p>Sistem PKL adalah platform yang dirancang untuk memudahkan pengelolaan dan monitoring program Praktek Kerja Lapangan (PKL). Dengan fitur-fitur yang lengkap dan mudah digunakan, kami membantu sekolah, siswa, dan perusahaan untuk mengelola semua aspek dari PKL secara efisien.</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Fitur-Fitur Utama -->
+        <section class="container mt-5">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2>Fitur Utama</h2>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <i class="bi bi-calendar-check"></i>
+                            <h4>Manajemen Jadwal</h4>
+                            <p>Memudahkan pengelolaan jadwal PKL bagi siswa dan pengajar.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="bi bi-people"></i>
+                            <h4>Pelacakan Siswa</h4>
+                            <p>Melacak kemajuan dan kehadiran siswa selama PKL.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <h4>Generasi Surat</h4>
+                            <p>Membuat dan mengelola surat-surat resmi terkait PKL dengan mudah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonial -->
+        <section class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2>Testimonial</h2>
+                    <div class="testimonial mt-4">
+                        <p>"Sistem PKL sangat membantu kami dalam mengatur semua proses PKL. Fitur-fiturnya mudah digunakan dan efisien. Terima kasih!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <br><br><br>
+
 </body>
+<?php include 'footer.php' ?>
 </html>
 
 <script>
@@ -201,5 +234,4 @@
         this.querySelector('.dm').classList.remove('show');
     });
 });
-
 </script>

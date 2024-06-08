@@ -156,6 +156,8 @@
     </div>
 </div>
 
+<?php include 'footer.php' ?>
+
 <script>
      $(document).ready(function() {
         var table = $('#tbl_pengajuan').DataTable( {

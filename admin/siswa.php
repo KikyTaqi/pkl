@@ -91,6 +91,8 @@
         </div>
     </div>
 </div>
+
+<?php include 'footer.php' ?>
 <script src="bootbox.all.min.js"></script>
 <script>
 
