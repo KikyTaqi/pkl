@@ -98,11 +98,11 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="tgl_mulai">Mulai Tanggal</label>
-                            <input class="form-control" type="date" name="tgl_mulai" id="tgl_mulai">
+                            <input class="form-control startDate" type="date" name="tgl_mulai" id="tgl_mulai">
                         </div>
                         <div class="form-group mb-3">
                             <label for="tgl_selesai">Sampai Tanggal</label>
-                            <input class="form-control" type="date" name="tgl_selesai" id="tgl_selesai">
+                            <input class="form-control endDate" type="date" name="tgl_selesai" id="tgl_selesai">
                         </div>
                         <div class="form-group mb-3">
                             <label for="durasi">Durasi Magang</label>
@@ -225,5 +225,35 @@
 
     getSelectedClass();
 });
+
+
+        // Mendapatkan elemen input tanggal
+        const startDateInput = document.querySelector('.startDate');
+        const endDateInput = document.querySelector('.endDate');
+
+        // Fungsi untuk mengatur batas maksimal tanggal selesai
+        const updateEndDateMax = () => {
+            const startDateValue = startDateInput.value;
+            if (startDateValue) {
+                const startDate = new Date(startDateValue);
+                const endDateMax = new Date(startDate);
+                endDateMax.setMonth(endDateMax.getMonth() + 6);
+
+                const dd = String(endDateMax.getDate()).padStart(2, '0');
+                const mm = String(endDateMax.getMonth() + 1).padStart(2, '0'); // Januari adalah 0
+                const yyyy = endDateMax.getFullYear();
+                const endDateMaxFormatted = `${yyyy}-${mm}-${dd}`;
+
+                endDateInput.max = endDateMaxFormatted;
+                endDateInput.min = startDateValue; // Opsional: memastikan end date tidak lebih awal dari start date
+            } else {
+                endDateInput.max = ""; // Reset max jika start date dihapus
+                endDateInput.min = ""; // Reset min jika start date dihapus
+            }
+        };
+
+        // Menambahkan event listener untuk mengupdate batas maksimal tanggal selesai
+        startDateInput.addEventListener('change', updateEndDateMax);
+
 
 </script>

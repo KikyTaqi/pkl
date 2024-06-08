@@ -14,6 +14,39 @@
                             });
                 </script>";
         }
+        if($_GET['status']=='success_hapus'){
+            echo "<script>
+                    Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Data berhasil dihapus',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                </script>";
+        }
+        if($_GET['status']=='success_terima'){
+            echo "<script>
+                    Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Data berhasil disetujui',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                </script>";
+        }
+        if($_GET['status']=='success_tolak'){
+            echo "<script>
+                    Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Persetujuan berhasi dibatalkan',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                </script>";
+        }
     }
 ?>
 
@@ -38,7 +71,7 @@
                                 <th>Industri</th>
                                 <th>Surat Pengajuan</th>
                                 <th>Surat Pengantar</th>
-                                <th>Opsi</th>
+                                <th width="120px">Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -93,25 +126,25 @@
                                 <td><?= $day. ", ". $tanggal. " " . $bulan ?></td>
                                 <td><?= $d['thn_ajaran']; ?></td>
                                 <td><?= $pkl ?></td>
-                                <td><a href="cetak_pengajuan.php?no_surat=<?= $d['id_surat'] ?>" target="_blank" class="btn btn-danger"><i class="bi bi-printer"></i> Dapatkan PDF</a></td>
+                                <td><a href="cetak_pengajuan.php?no_surat=<?= $d['id_surat'] ?>" target="_blank" class="btn btn-danger"><i class="bi bi-printer"></i> PDF</a></td>
                                 <td>
                                     <?php 
                                     if ($d['pengantar'] == null) {
                                         echo 'Surat Belum Ada!';
                                     } else {
-                                        echo "<a href='cetak_pengantar.php?no_surat=".$pengantar."' target='_blank' class='btn btn-warning'><i class='bi bi-printer'></i> Dapatkan PDF</a>";
+                                        echo "<a href='cetak_pengantar.php?no_surat=".$pengantar."' target='_blank' class='btn btn-warning'><i class='bi bi-printer'></i> PDF</a>";
                                     }
                                     ?>
                                 </td>
                                 <td>
                                     <?php 
                                         if($d['pengantar'] == ""){
-                                            echo '<a href="prs/terima.php" class="btn btn-success"><i class="bi bi-check-lg"></i></a>';
+                                            echo '<a href="prs/terima.php?nos='.$pengantar.'" onclick="terima(event, this)" class="btn btn-success"><i class="bi bi-check-lg"></i></a>';
                                         }else{
-                                            echo '<a href="prs/batal.php" class="btn btn-warning"><i class="bi bi-x-lg"></i></a>';
+                                            echo '<a href="prs/batal.php?nos='.$pengantar.'" onclick="tolak(event, this)" class="btn btn-warning"><i class="bi bi-x-lg"></i></a>';
                                         }
                                     ?>
-                                    <a href="prs/hs_pengajuan.php" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                    <a href="prs/hs_pengajuan.php?nos=<?= $pengantar ?>" onclick="hapus(event, this)" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -132,4 +165,57 @@
         new $.fn.dataTable.FixedHeader( table );
     } );
 
+    function hapus(event, element) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Apakah Kamu yakin?',
+                text: "Data akan dihapus secara permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = element.href;
+                }
+            });
+        }
+
+    function terima(event, element) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Apakah Kamu yakin?',
+                text: "Data akan disetujui!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Saya Setuju!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = element.href;
+                }
+            });
+        }
+
+    function tolak(event, element) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Apakah Kamu yakin?',
+                text: "Data akan dibatalkan persetujuannya!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya Batalkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = element.href;
+                }
+            });
+        }
 </script>
