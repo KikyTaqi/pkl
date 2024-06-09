@@ -122,8 +122,6 @@
                                 <b><?php echo $_SESSION['username']; ?></b>
                             </a>
                             <ul class="dropdown-menu dm" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                                <li><hr class="dropdown-divider"></li>
                                 <li><a href="../logout.php" class="dropdown-item"><i class="bi bi-box-arrow-left"></i> Log Out</a></li>
                             </ul>
                         </li>

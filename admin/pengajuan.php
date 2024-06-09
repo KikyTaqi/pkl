@@ -54,9 +54,7 @@
     <div class="mt-4 mb-4">
         <div class="card">
             <div class="card-header">
-                <center>
-                    <h4>Pengajuan</h4>
-                </center>
+                <h3 class="text-center">Pengajuan</h3>
             </div>
             <div class="card-body">
                 <a href="tbh/pengajuan.php" class="btn btn-primary float-end mx-3"><i class="bi bi-plus"></i> Tambah</a><br><br>

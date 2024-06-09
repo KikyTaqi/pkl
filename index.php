@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><span class="bi bi-person"></span></span>
-                                <input type="text" name="username" class="form-control" placeholder="Username">
+                                <input type="text" name="username" class="form-control" placeholder="NISN/NIP">
                             </div>
                         </div>
 

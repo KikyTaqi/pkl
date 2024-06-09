@@ -42,7 +42,7 @@
         ?>
 
         <div class="card-header">
-            <h3>Data Siswa</h3>
+            <h3 class="text-center">Data Siswa</h3>
         </div>
         <div class="card-body mt-4 p-4 my-5">
             <div class="table-responsive">

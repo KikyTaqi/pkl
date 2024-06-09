@@ -42,7 +42,7 @@
         ?>
 
         <div class="card-header">
-            <h3>Data Dudi</h3>
+            <h3 class="text-center">Data Dudi</h3>
         </div>
         <div class="card-body mt-4 p-4 my-5">
             <a href="tbh/dudi.php" class="btn btn-primary float-end"><i class="bi bi-building"></i> Tambah</a><br><br><br>   
