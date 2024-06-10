@@ -48,8 +48,8 @@
                         </div>
                         
                         <div class="form-group mb-3" id="nisn1" style="display:none;">
-                            <label for="nisn">NISN (Antum Sendiri)</label>
-                            <input readonly name="nisn1" value="<?= $user; ?>" type="text" class="form-control">
+                            <label for="nisn1">NISN (Antum Sendiri)</label>
+                            <input readonly name="nisn1" value="<?= $user; ?>" type="text" id="nisn1" class="form-control">
                         </div>
                         <div class="form-group" id="nisn2" style="display:none;">
                             <label for="nisn">Nama Siswa ke 2</label>
@@ -87,7 +87,7 @@
                         <div class="form-group mb-3">
                             <label for="thn_ajaran">Tahun Ajaran</label>
                             <select name="thn_ajaran" id="thn_ajaran" class="form-select">
-                                <option hidden selected disabled class="0" value="">- Pilih Tahun Ajaran -</option>
+                                <option hidden selected disabled class="0" value="0">- Pilih Tahun Ajaran -</option>
                                 <option value="2024/2025">2024/2025</option>
                                 <option value="2025/2026">2025/2026</option>
                             </select>
@@ -106,12 +106,12 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="durasi">Durasi Magang</label>
-                            <input type="text" id="durasi" name="durasi" value="" class="form-control" readonly>
+                            <input type="text" id="durasi" name="durasi" value="0" class="form-control" readonly>
                         </div>
                         <div class="form-group mb-3">
                             <label for="kepsek">Kepala Sekolah</label>
                             <select name="kepsek" id="kepsek" class="form-select">
-                                <option hidden selected disabled class="0" value="">- Pilih Kepala Sekolah -</option>
+                                <option hidden selected disabled class="0" value="0">- Pilih Kepala Sekolah -</option>
                                 <option value="ABDUL MALIK NUGROHO, S.Pd.T.">ABDUL MALIK NUGROHO, S.Pd.T.</option>
                             </select>
                         </div>

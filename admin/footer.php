@@ -9,7 +9,7 @@
                 <h5>Contact Us</h5>
                 <ul class="list-unstyled">
                     <li><a target="_blank" style="text-decoration: none;" href="https://www.instagram.com/rifqiramandhani_/" class="link-primary"><i class="bi bi-instagram"></i> rifqiramandhani_</a></li>
-                    <li><a target="_blank" style="text-decoration: none;" href="https://github.com/KikyTaqi/pkl" class="link-primary"><i class="bi bi-github"></i> v0.1a</a></li>
+                    <li><a target="_blank" style="text-decoration: none;" href="https://github.com/KikyTaqi/pkl" class="link-primary"><i class="bi bi-github"></i> v0.1b</a></li>
                     <li><a target="_blank" style="text-decoration: none;" href="https://maps.app.goo.gl/z2QtxdtMANmfSJMG9" class="link-primary"><i class="bi bi-geo-alt-fill"></i> Kec. Boja, Kab. Kendal, Jawa Tengah</a></li>
                 </ul>
             </div>
