@@ -11,7 +11,8 @@
 
     $sql = mysqli_query($koneksi, "UPDATE pegawai SET nama_pegawai = '$nama', tgl_lahir = '$tgl', 
                         tempat_lahir = '$tmp_lahir', alamat = '$alamat', jenis_kelamin = '$jk' WHERE nip = '$nip'");
-
+    $pf = mysqli_query($koneksi, "UPDATE user SET profile_name = '$nama' WHERE nisn = '$nip'");
+    
     if (!$sql){
         die("Query Error : " .mysqli_errno($koneksi). "-" .mysqli_error($koneksi));
     } else {

@@ -13,7 +13,8 @@
 
     $sql = mysqli_query($koneksi, "UPDATE siswa SET nama_siswa = '$nama', tgl_lahir = '$tgl', alamat = '$alamat', 
                     nis = '$nis', jenis_kelamin = '$jk', kelas = '$kelas', jurusan = '$jurusan' WHERE nisn = '$nisn'");
-
+    $pf = mysqli_query($koneksi, "UPDATE user SET profile_name = '$nama' WHERE nisn = '$nisn'");
+    
     if (!$sql){
         die("Query Error : " .mysqli_errno($koneksi). "-" .mysqli_error($koneksi));
     } else {

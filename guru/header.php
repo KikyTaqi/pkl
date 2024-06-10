@@ -47,6 +47,7 @@
 </head>
 <body style="background: #f0f0f0; padding-top: 70px;">
         <?php 
+            include '../koneksi.php';
             session_start();
             if($_SESSION['status']!="login"){
                 header("location:../index.php?pesan=belum_login");
