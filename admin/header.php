@@ -75,26 +75,10 @@
                         <li class="nav-item">
                             <a href="dudi.php" class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/tugel2/admin/dudi.php') !== false) ? 'active' : ''; ?>"><i class="bi bi-building"></i> Du/di</a>
                         </li>
-                    </ul>
-                    <div id="surat" class="ml-auto">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item dropdown dropdown-hover">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-envelope"></i>
-                                Surat
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a href="pengajuan.php" class="dropdown-item">Surat Pengajuan & Pengantar</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a href="penarikan.php" class="dropdown-item">Surat Penarikan</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a href="ijin.php" class="dropdown-item">Surat Ijin</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a href="pkl.php" class="dropdown-item">Surat PKL</a></li>
-                            </ul>
+                        <li class="nav-item">
+                            <a href="pengajuan.php" class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], '/tugel2/admin/pengajuan.php') !== false) ? 'active' : ''; ?>"><i class="bi bi-envelope"></i> Surat</a>
                         </li>
                     </ul>
-                </div>
                     <ul class="nav navbar-nav">
                         <li class="nav-item dropdown dropdown-hover dh">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
